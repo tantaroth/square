@@ -1,0 +1,41 @@
+<div ng-controller="GamersCtrl">
+    <div>
+        <form>
+            <div>
+                <label for="name">Nombre</label>
+                <input type="text" id="name" ng-model="form.name" required>
+            </div>
+            <div>
+                <label for="color">Color</label>
+                <select id="color" ng-model="form.color" multiple required>
+                    <option ng-repeat="item in colors" value="{{item.id}}">{{item.name}}</option>
+                </select>
+            </div>
+            <button ng-click="create()">Crear</button>
+        </form>
+    </div>
+    <hr>
+    <ul>
+        <li ng-repeat="item in gamers" id="gamer_{{$index}}">
+            <h3>
+					<span class="color" style="background-color: {{item.color}}">&nbsp;</span>
+					{{item.name}}: 
+					<span class="score">0</span>
+				</h3>
+        </li>
+    </ul>
+</div>
+<br class="clearBoth">
+<br>
+<div ng-controller="DashboardCtrl" class="dashboard">
+    <div ng-repeat="n in [] | range:dashboard.square" class="row r{{$index+1}}" row="{{$index+1}}">
+        <div ng-repeat="n in [] | range:dashboard.square" class="col c{{$index+1}}" col="{{$index+1}}">
+            <div class="letter">&nbsp;</div>
+            <div class="left">&nbsp;</div>
+            <div class="right">&nbsp;</div>
+            <div class="top">&nbsp;</div>
+            <div class="bottom">&nbsp;</div>
+        </div>
+    </div>
+</div>
+<br class="clearBoth">
